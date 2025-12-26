@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <!-- Your GCP Project ID -->
+    <application>cloudappstore-482105</application>
+
+    <!-- Version of this deployment -->
+    <version>1</version>
+
+    <!-- Enable threadsafe for Java 11 apps -->
+    <threadsafe>true</threadsafe>
+
+    <!-- Java runtime -->
+    <runtime>java11</runtime>
+
+    <!-- Optional: instance class -->
+    <instance-class>F2</instance-class>
+</appengine-web-app>

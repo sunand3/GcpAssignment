@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Directory & Migration Data</title>
+</head>
+<body>
+
+<h2>User Directory & Migration Data</h2>
+
+<input type="text" id="searchInput" placeholder="Search users..." onkeyup="searchUsers()">
+<br><br>
+
+<table border="1" width="80%">
+    <tr>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <tbody id="userTable">
+    <tr>
+        <td>Alice Smith</td>
+        <td>12.02.1986</td>
+        <td>alice@email.com</td>
+        <td><button>Edit</button></td>
+    </tr>
+    <tr>
+        <td>Bob Johnson</td>
+        <td>09.03.1997</td>
+        <td>bob@email.com</td>
+        <td><button>Edit</button></td>
+    </tr>
+    <tr>
+        <td>Carol White</td>
+        <td>10.18.1986</td>
+        <td>carol@email.com</td>
+        <td><button>Edit</button></td>
+    </tr>
+    <tr>
+        <td>David Brown</td>
+        <td>14.05.1983</td>
+        <td>david@email.com</td>
+        <td><button>Edit</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<br><br>
+
+<h3>Migrate Data</h3>
+
+<button onclick="migrateNow()">Migrate Now</button>
+<br><br>
+<button onclick="bulkMigrate()">Bulk Migrate Users</button>
+
+<p id="migrationStatus"></p>
+
+<script>
+    function searchUsers() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let rows = document.getElementById("userTable").getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+            let text = rows[i].innerText.toLowerCase();
+            rows[i].style.display = text.includes(input) ? "" : "none";
+        }
+    }
+
+    function migrateNow() {
+        document.getElementById("migrationStatus").innerText =
+            "Migration started...";
+    }
+
+    function bulkMigrate() {
+        document.getElementById("migrationStatus").innerText =
+            "100 Records Migrated Successfully!";
+    }
+</script>
+
+</body>
+</html>

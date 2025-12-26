@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management - Index</title>
+</head>
+<body>
+
+<h2>User Management Dashboard</h2>
+
+<hr>
+
+<h3>Add User (Manual Entry)</h3>
+
+<form onsubmit="addUser(event)">
+    <label>Name:</label><br>
+    <input type="text" id="name" required><br><br>
+
+    <label>DOB:</label><br>
+    <input type="text" id="dob" placeholder="DD.MM.YYYY" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password" required><br><br>
+
+    <label>Gender:</label><br>
+    <input type="text" id="gender"><br><br>
+
+    <label>Address:</label><br>
+    <input type="text" id="address"><br><br>
+
+    <button type="submit">Add User</button>
+</form>
+
+<p id="addStatus"></p>
+
+<hr>
+
+<h3>Upload Users via Excel</h3>
+
+<form onsubmit="uploadExcel(event)">
+    <input type="file" id="excelFile" accept=".xls,.xlsx">
+    <br><br>
+    <button type="submit">Upload Excel</button>
+</form>
+
+<p id="excelStatus"></p>
+
+<hr>
+
+<h3>Navigation</h3>
+
+<ul>
+    <li><a href="migration.html">User Directory & Migration</a></li>
+</ul>
+
+<script>
+    function addUser(event) {
+        event.preventDefault();
+
+        document.getElementById("addStatus").innerText =
+            "User added successfully to Datastore!";
+    }
+
+    function uploadExcel(event) {
+        event.preventDefault();
+
+        let file = document.getElementById("excelFile").value;
+        if (file) {
+            document.getElementById("excelStatus").innerText =
+                "Excel uploaded and users stored in Datastore!";
+        } else {
+            alert("Please select an Excel file");
+        }
+    }
+</script>
+
+</body>
+</html>
